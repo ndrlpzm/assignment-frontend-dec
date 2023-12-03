@@ -11,3 +11,6 @@ article {
 article img {
   max-width: 100%;
 }
+.selected-item {
+  border-color: darkred;
+}
