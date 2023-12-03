@@ -4,8 +4,8 @@ interface ItemPreviewInput {
 }
 export default function ItemPreview({ item }: ItemPreviewInput) {
   return (
-    <div>
+    <article>
       <img alt={item.description} src={item.image}></img>
-    </div>
+    </article>
   );
 }

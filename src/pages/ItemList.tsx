@@ -1,14 +1,13 @@
 import ItemPreview from "../components/ItemPreview";
 import { itemListMock } from "../data/objects/Item";
+import "./css/ItemList.css";
 
 export default function ItemList() {
   return (
-    <ul>
+    <div className="item-container">
       {itemListMock.map((item) => (
-        <li key={item.index}>
-          <ItemPreview item={item} />
-        </li>
+        <ItemPreview key={item.index} item={item} />
       ))}
-    </ul>
+    </div>
   );
 }

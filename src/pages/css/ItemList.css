@@ -1,0 +1,13 @@
+.item-container {
+  display: grid;
+  grid-template-columns: repeat(4, 20vw);
+  gap: 6px 6px;
+}
+article {
+  border: 2px solid gainsboro;
+  border-radius: 14px;
+  padding: 12px;
+}
+article img {
+  max-width: 100%;
+}
