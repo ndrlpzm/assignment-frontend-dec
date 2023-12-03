@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import Item from "../data/objects/Item";
 interface ItemPreviewInput {
   item: Item;
@@ -9,8 +10,10 @@ export default function ItemPreview({
   isSelected,
   setSelectedItem,
 }: ItemPreviewInput) {
+  const navigate = useNavigate();
   function handleClick(event: React.MouseEvent<HTMLElement, MouseEvent>): void {
     if (!isSelected) setSelectedItem(item.index);
+    navigate(`/${item.index}/item`);
   }
 
   return (
