@@ -200,3 +200,4 @@ export const itemListMock: Item[] = [
     image: "https://picsum.photos/id/2/200/300",
   },
 ];
+export default Item;
