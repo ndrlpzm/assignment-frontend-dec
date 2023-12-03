@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import Item from "../data/objects/Item";
 import { useDispatch } from "react-redux";
-import { setActive } from "../redux/activeItemSlice";
+import { setActive } from "../redux/slices/activeItemSlice";
 interface ItemPreviewInput {
   item: Item;
   isSelected: boolean;

@@ -1,7 +1,7 @@
 import "./css/ItemList.css";
 import ItemPreview from "../components/ItemPreview";
 import { itemListMock } from "../data/objects/Item";
-import { selectActiveItem } from "../redux/activeItemSlice";
+import { selectActiveItem } from "../redux/slices/activeItemSlice";
 import { useSelector } from "react-redux";
 
 export default function ItemList() {

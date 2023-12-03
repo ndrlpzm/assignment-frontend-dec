@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { activeItemReducer } from "./activeItemSlice";
+import { activeItemReducer } from "./slices/activeItemSlice";
+import { itemListReducer } from "./slices/itemListSlice";
 
 export const store = configureStore({
   reducer: {
     activeItem: activeItemReducer,
+    itemList: itemListReducer,
   },
 });
 export type RootState = ReturnType<typeof store.getState>;
