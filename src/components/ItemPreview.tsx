@@ -26,6 +26,7 @@ export default function ItemPreview({ item, isSelected }: ItemPreviewInput) {
         <img
           alt={item.description}
           src={item.image}
+          loading="lazy"
           onError={handleImgError}
         ></img>
       </div>

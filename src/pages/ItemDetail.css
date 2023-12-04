@@ -9,17 +9,17 @@
   height: calc(100vh - (var(--padding-top-bottom) * 2));
   gap: var(--flex-gap);
 }
-article {
+.detail-article {
   flex-shrink: 1;
   border: 2px solid var(--border);
   border-radius: 14px;
   padding: 12px;
   max-height: 70vh;
 }
-article img {
+.detail-article img {
   position: relative;
   max-width: 100%;
-  max-height: 100%;
+  max-height: calc(100% - 1em);
 }
 h1 {
   flex-shrink: 0;

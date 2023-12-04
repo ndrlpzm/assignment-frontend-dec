@@ -19,7 +19,7 @@ export default function ItemDetail() {
       {item && (
         <>
           <h1>{item.title}</h1>
-          <article>
+          <article className="detail-article">
             <img
               alt={item.description}
               src={item.image}
