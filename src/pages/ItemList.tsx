@@ -1,4 +1,4 @@
-import "./css/ItemList.css";
+import "./ItemList.css";
 import ItemPreview from "../components/ItemPreview";
 import { useSelector } from "react-redux";
 import { selectActiveItem } from "../redux/slices/activeItemSlice";
