@@ -1,15 +1,16 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../store";
+import Item from "../../data/objects/Item";
 
 interface ActiveItemState {
-  value: number | undefined;
+  value: Item | undefined;
 }
 const initialState: ActiveItemState = { value: undefined };
 export const activeItemSlice = createSlice({
   name: "activeItem",
   initialState,
   reducers: {
-    setActive: (state, action: PayloadAction<number>) => {
+    setActive: (state, action: PayloadAction<Item>) => {
       //not including state since it has a single property
       return { value: action.payload };
     },

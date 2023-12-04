@@ -34,7 +34,7 @@ export default function ItemList() {
             <ItemPreview
               key={item.index}
               item={item}
-              isSelected={selectedItem === item.index}
+              isSelected={selectedItem?.index === item.index}
             />
           ))
         )}
