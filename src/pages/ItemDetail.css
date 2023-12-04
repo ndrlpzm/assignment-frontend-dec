@@ -5,12 +5,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   height: calc(100vh - (var(--padding-top-bottom) * 2));
   gap: var(--flex-gap);
 }
 .detail-article {
-  flex-shrink: 1;
   border: 2px solid var(--border);
   border-radius: 14px;
   padding: 12px;
@@ -22,11 +20,9 @@
   max-height: calc(100% - 1em);
 }
 h1 {
-  flex-shrink: 0;
   font-size: 1.5em;
 }
 .button-back {
-  flex-shrink: 0;
 }
 /* --- Compact ---------------------------------------------------------------*/
 @media screen and (width < 599px) {

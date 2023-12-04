@@ -6,7 +6,7 @@
   gap: var(--cell-gap);
   margin-top: var(--padding-top-bottom);
 }
-article {
+.list-item {
   border: 2px solid var(--border);
   border-radius: 14px;
   padding: 12px;
