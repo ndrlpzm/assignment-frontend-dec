@@ -1,4 +1,4 @@
-import { itemListMock } from "../data/objects/Item";
+import { itemListMock } from "../data/MockData";
 
 export const useApiFetch = (path: string) => {
   //   const response = fetch(path)
