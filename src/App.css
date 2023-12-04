@@ -1,0 +1,44 @@
+:root {
+  --padding-sides: 24px;
+  --padding-top-bottom: 20px;
+
+  --background-base: #ececf0;
+  --background-article: #f3f3f3;
+
+  --foreground-base: #241f1c;
+  --foreground-header: #493e3e;
+
+  --accent: #bd6b6b;
+  --accent-sheer: #bd6b6ba2;
+
+  --border: #afafaf;
+
+  --transparent-white: #ffffff6e;
+}
+body {
+  background-color: var(--background-base);
+  padding: var(--padding-top-bottom) var(--padding-sides);
+}
+article {
+  background-color: var(--background-article);
+}
+
+/* --- Compact ---------------------------------------------------------------*/
+@media screen and (width < 599px) {
+  :root {
+    --padding-sides: 16px;
+    --padding-top-bottom: 16px;
+  }
+}
+
+/* --- Medium ----------------------------------------------------------------*/
+@media screen and (600px < width < 839px) {
+  :root {
+    --padding-sides: 16px;
+    --padding-top-bottom: 16px;
+  }
+}
+
+/* --- Expanded --------------------------------------------------------------*/
+@media screen and (840px < width) {
+}

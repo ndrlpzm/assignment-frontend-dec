@@ -23,19 +23,22 @@ export default function ItemList() {
   }, [loading, dispatch]);
 
   return (
-    <div className="item-container">
-      {loading ? (
-        <>Loading</>
-      ) : (
-        data !== null &&
-        data.map((item) => (
-          <ItemPreview
-            key={item.index}
-            item={item}
-            isSelected={selectedItem === item.index}
-          />
-        ))
-      )}
-    </div>
+    <>
+      <h1>Main Page</h1>
+      <div className="item-container">
+        {loading ? (
+          <>Loading</>
+        ) : (
+          data !== null &&
+          data.map((item) => (
+            <ItemPreview
+              key={item.index}
+              item={item}
+              isSelected={selectedItem === item.index}
+            />
+          ))
+        )}
+      </div>
+    </>
   );
 }
