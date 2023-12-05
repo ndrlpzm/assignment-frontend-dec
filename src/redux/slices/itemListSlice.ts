@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../store";
 import Item from "../../data/objects/Item";
-import { useApiMock } from "../../utils/useApi";
+import { callApiFetch } from "../../utils/api";
 
 interface ItemListState {
   data: Item[] | null;
@@ -22,15 +22,17 @@ export const ItemListSlice = createSlice({
       return { ...state, loading: true };
     });
     builder.addCase(fetchAll.fulfilled, (state, action) => {
-      console.log(action.payload);
+      console.log(action);
       return { ...state, data: action.payload, loading: false };
+    });
+    builder.addCase(fetchAll.rejected, (state, action) => {
+      return { ...state, loading: false, error: action.error.message };
     });
   },
 });
 
-export const fetchAll = createAsyncThunk("items/fetchAll", async () => {
-  const response = await useApiMock("/");
-  return response;
+export const fetchAll = createAsyncThunk("items/fetchAll", async (thunkApi) => {
+  return (await callApiFetch("http://54.73.73.228:4369/api/images")) as Item[];
 });
 
 export const itemsReducer = ItemListSlice.reducer;
