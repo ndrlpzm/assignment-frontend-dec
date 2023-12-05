@@ -1,5 +1,4 @@
 import a from "../data/MockData.json";
-import { ItemAlt, ItemData } from "../data/objects/Item";
 
 export async function callApiFetch(path: string) {
   //const res = await fetch(path);
