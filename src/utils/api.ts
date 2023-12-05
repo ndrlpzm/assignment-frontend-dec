@@ -1,11 +1,7 @@
-import a from "../data/MockData.json";
+import mock from "../data/MockData.json";
 
 export async function callApiFetch(path: string) {
   //const res = await fetch(path);
   //return await res.json();
-  return Object.keys(a).map((key) => a[key as keyof typeof a]);
+  return Object.keys(mock).map((key) => mock[key as keyof typeof mock]);
 }
-export const useApiMock = (path: string) => {
-  console.log("mock " + path);
-  return a;
-};
