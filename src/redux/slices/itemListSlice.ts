@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { RootState } from "../store";
-import Item from "../../data/objects/Item";
+import { AppDispatch, RootState } from "../store";
+import Item from "../../data/objects/item";
 import { callApiFetch } from "../../utils/api";
 
 interface ItemListState {
@@ -13,6 +13,9 @@ const initialState: ItemListState = {
   loading: true,
   error: undefined,
 };
+const apiPath = "http://54.73.73.228:4369/api/images";
+const wrongApiPath = "http://54.73.73.228:4369/api/imag";
+const wrongApiPath2 = "http://testwrongaddress.dev";
 export const ItemListSlice = createSlice({
   name: "items",
   initialState,
@@ -23,17 +26,29 @@ export const ItemListSlice = createSlice({
     });
     builder.addCase(fetchAll.fulfilled, (state, action) => {
       console.log(action);
-      return { ...state, data: action.payload, loading: false };
+      const parsedData = Object.keys(action.payload).map(
+        (key) => action.payload[key as keyof typeof action.payload]
+      );
+      return { ...state, data: parsedData as Item[], loading: false };
     });
     builder.addCase(fetchAll.rejected, (state, action) => {
-      return { ...state, loading: false, error: action.error.message };
+      if (action.payload)
+        return { ...state, loading: false, error: action.payload };
+      else return { ...state, loading: false, error: action.error.message };
     });
   },
 });
-
-export const fetchAll = createAsyncThunk("items/fetchAll", async (thunkApi) => {
-  return (await callApiFetch("http://54.73.73.228:4369/api/images")) as Item[];
-});
+export const createTypedAsyncThunk = createAsyncThunk.withTypes<{
+  state: RootState;
+  dispatch: AppDispatch;
+  rejectValue: string;
+}>();
+export const fetchAll = createTypedAsyncThunk(
+  "items/fetchAll",
+  async (_, thunkApi) => {
+    return await callApiFetch(apiPath, thunkApi);
+  }
+);
 
 export const itemsReducer = ItemListSlice.reducer;
 export const selectItemList = (state: RootState) => state.items.data;

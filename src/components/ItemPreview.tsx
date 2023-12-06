@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import Item from "../data/objects/Item";
+import Item from "../data/objects/item";
 import { useDispatch } from "react-redux";
 import { setActive } from "../redux/slices/activeItemSlice";
 import { handleImgError } from "../utils/utils";
