@@ -1,11 +1,10 @@
 import "./ItemDetail.css";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { selectActiveItem } from "../redux/slices/activeItemSlice";
 import { handleImgError } from "../utils/utils";
+import { useAppSelector } from "../hooks/redux";
 
 export default function ItemDetail() {
-  const item = useSelector(selectActiveItem);
+  const item = useAppSelector((state) => state.activeItem.value);
   const navigate = useNavigate();
 
   function handleClick(

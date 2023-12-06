@@ -1,20 +1,14 @@
 import "./ItemList.css";
 import ItemPreview from "../components/ItemPreview";
-import { useSelector } from "react-redux";
-import { selectActiveItem } from "../redux/slices/activeItemSlice";
-import {
-  fetchAll,
-  selectItemList,
-  selectItemListLoading,
-} from "../redux/slices/itemListSlice";
+import { fetchAll } from "../redux/slices/itemListSlice";
 import { useEffect } from "react";
-import { useAppDispatch } from "../redux/store";
+import { useAppDispatch, useAppSelector } from "../hooks/redux";
 
 export default function ItemList() {
   const dispatch = useAppDispatch();
-  const data = useSelector(selectItemList);
-  const loading = useSelector(selectItemListLoading);
-  const selectedItem = useSelector(selectActiveItem);
+  const data = useAppSelector((state) => state.items.data);
+  const loading = useAppSelector((state) => state.items.loading);
+  const selectedItem = useAppSelector((state) => state.activeItem.value);
   useEffect(() => {
     if (loading) {
       console.log(dispatch);

@@ -25,7 +25,6 @@ export const ItemListSlice = createSlice({
       return { ...state, loading: true };
     });
     builder.addCase(fetchAll.fulfilled, (state, action) => {
-      console.log(action);
       const parsedData = Object.keys(action.payload).map(
         (key) => action.payload[key as keyof typeof action.payload]
       );
@@ -51,7 +50,5 @@ export const fetchAll = createTypedAsyncThunk(
 );
 
 export const itemsReducer = ItemListSlice.reducer;
-export const selectItemList = (state: RootState) => state.items.data;
-export const selectItemListLoading = (state: RootState) => state.items.loading;
 
 export default ItemListSlice.reducer;

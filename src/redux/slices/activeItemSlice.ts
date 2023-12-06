@@ -1,5 +1,4 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { RootState } from "../store";
 import Item from "../../data/objects/item";
 
 interface ActiveItemState {
@@ -11,7 +10,6 @@ export const activeItemSlice = createSlice({
   initialState,
   reducers: {
     setActive: (state, action: PayloadAction<Item>) => {
-      //not including state since it has a single property
       return { value: action.payload };
     },
   },
@@ -19,6 +17,5 @@ export const activeItemSlice = createSlice({
 
 export const { setActive } = activeItemSlice.actions;
 export const activeItemReducer = activeItemSlice.reducer;
-export const selectActiveItem = (state: RootState) => state.activeItem.value;
 
 export default activeItemSlice.reducer;
