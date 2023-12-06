@@ -1,5 +1,5 @@
 import { GetThunkAPI } from "@reduxjs/toolkit/dist/createAsyncThunk";
-import mock from "../data/MockData.json";
+//import mock from "../data/MockData.json";
 import { AnyAction } from "@reduxjs/toolkit";
 import { Dispatch } from "react";
 import { RootState } from "../redux/store";
