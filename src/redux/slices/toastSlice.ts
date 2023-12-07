@@ -9,7 +9,9 @@ export const toastSlice = createSlice({
   initialState,
   reducers: {
     add: (state, action: PayloadAction<Toast>) => {
-      return { value: [...state.value, action.payload] };
+      if (state.value.length > 0)
+        return { value: [...state.value, action.payload] };
+      else return { value: [action.payload] };
     },
     deleteFirst: (state) => {
       if (state.value.length > 0) return { value: state.value.slice(1) };

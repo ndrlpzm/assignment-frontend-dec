@@ -3,18 +3,25 @@ import ItemPreview from "../components/ItemPreview";
 import { fetchAll } from "../redux/slices/itemListSlice";
 import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../hooks/redux";
+import { useCreateToast } from "../hooks/toast";
+import { Toast } from "../data/objects/toast";
 
 export default function ItemList() {
   const dispatch = useAppDispatch();
-  const data = useAppSelector((state) => state.items.data);
-  const loading = useAppSelector((state) => state.items.loading);
+  const { data, loading, error } = useAppSelector((state) => state.items);
+  const setToast = useCreateToast();
+  //const loading = useAppSelector((state) => state.items.loading);
   const selectedItem = useAppSelector((state) => state.activeItem.value);
   useEffect(() => {
     if (loading) {
-      console.log(dispatch);
       dispatch(fetchAll());
     }
   }, [loading, dispatch]);
+  useEffect(() => {
+    if (error) {
+      setToast({ title: "Error", content: error, type: "error" });
+    }
+  }, [error, setToast]);
 
   return (
     <>
