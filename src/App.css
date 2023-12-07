@@ -13,7 +13,7 @@
 
   --border: #afafaf;
 
-  --transparent-white: #ffffff6e;
+  --transparent-white: #ffffffbd;
 }
 body {
   background-color: var(--background-base);
