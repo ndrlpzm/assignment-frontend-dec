@@ -22,13 +22,16 @@ export const ItemListSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(fetchAll.pending, (state) => {
-      return { ...state, loading: true };
+      return { ...state, loading: true, error: undefined };
     });
     builder.addCase(fetchAll.fulfilled, (state, action) => {
-      const parsedData = Object.keys(action.payload).map(
-        (key) => action.payload[key as keyof typeof action.payload]
-      );
-      return { ...state, data: parsedData as Item[], loading: false };
+      try {
+        //Not storing keys in this case
+        const jsonValues: Item[] = Object.values(action.payload);
+        return { ...state, data: jsonValues, loading: false };
+      } catch (error) {
+        return { ...state, loading: false, error: "Unexpected response" };
+      }
     });
     builder.addCase(fetchAll.rejected, (state, action) => {
       if (action.payload)
