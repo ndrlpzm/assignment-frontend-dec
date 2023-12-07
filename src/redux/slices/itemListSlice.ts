@@ -8,12 +8,12 @@ interface ItemListState {
   loading: boolean;
   error: string | undefined;
 }
+const apiPath = "http://54.73.73.228:4369/api/images";
 const initialState: ItemListState = {
   data: null,
   loading: true,
   error: undefined,
 };
-const apiPath = "http://54.73.73.228:4369/api/images";
 
 export const ItemListSlice = createSlice({
   name: "items",
@@ -25,9 +25,17 @@ export const ItemListSlice = createSlice({
     });
     builder.addCase(fetchAll.fulfilled, (state, action) => {
       try {
-        //Not storing keys in this case
-        const jsonValues: Item[] = Object.values(action.payload);
-        return { ...state, data: jsonValues, loading: false };
+        let itemArray: Item[] = Object.keys(action.payload).map((key) => {
+          const obj = action.payload[key as keyof typeof action.payload];
+          return {
+            key: key,
+            index: obj.index,
+            title: obj.title,
+            image: obj.image,
+            description: obj.description,
+          };
+        });
+        return { ...state, data: itemArray, loading: false };
       } catch (error) {
         return { ...state, loading: false, error: "Unexpected response" };
       }

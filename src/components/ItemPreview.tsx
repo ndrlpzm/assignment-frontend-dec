@@ -13,7 +13,7 @@ export default function ItemPreview({ item, isSelected }: ItemPreviewInput) {
 
   function handleClick(event: React.MouseEvent<HTMLElement, MouseEvent>): void {
     if (!isSelected) dispatch(setActive(item));
-    navigate(`/${item.index}/item`);
+    navigate(`/${item.index}/${item.key}`);
   }
 
   return (

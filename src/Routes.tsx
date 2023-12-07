@@ -6,7 +6,7 @@ export function RouteProvider() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<ItemList />}></Route>
-        <Route path="/:id/item" element={<ItemDetail />}></Route>
+        <Route path="/:id/:key" element={<ItemDetail />}></Route>
       </Routes>
     </BrowserRouter>
   );
