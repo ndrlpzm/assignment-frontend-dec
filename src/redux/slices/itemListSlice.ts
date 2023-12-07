@@ -14,8 +14,7 @@ const initialState: ItemListState = {
   error: undefined,
 };
 const apiPath = "http://54.73.73.228:4369/api/images";
-const wrongApiPath = "http://54.73.73.228:4369/api/imag";
-const wrongApiPath2 = "http://testwrongaddress.dev";
+
 export const ItemListSlice = createSlice({
   name: "items",
   initialState,

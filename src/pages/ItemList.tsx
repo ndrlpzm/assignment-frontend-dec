@@ -4,7 +4,6 @@ import { fetchAll } from "../redux/slices/itemListSlice";
 import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../hooks/redux";
 import { useCreateToast } from "../hooks/toast";
-import { Toast } from "../data/objects/toast";
 
 export default function ItemList() {
   const dispatch = useAppDispatch();
