@@ -1,15 +1,15 @@
 import { useNavigate } from "react-router-dom";
 import Item from "../data/objects/item";
-import { useDispatch } from "react-redux";
 import { setActive } from "../redux/slices/activeItemSlice";
 import { handleImgError } from "../utils/utils";
+import { useAppDispatch } from "../hooks/redux";
 interface ItemPreviewInput {
   item: Item;
   isSelected: boolean;
 }
 export default function ItemPreview({ item, isSelected }: ItemPreviewInput) {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   function handleClick(event: React.MouseEvent<HTMLElement, MouseEvent>): void {
     if (!isSelected) dispatch(setActive(item));

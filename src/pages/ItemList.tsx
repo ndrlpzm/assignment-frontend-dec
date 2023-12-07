@@ -13,10 +13,10 @@ export default function ItemList() {
   const setToast = useCreateToast();
 
   useEffect(() => {
-    if (loading) {
+    if (data === null) {
       dispatch(fetchAll());
     }
-  }, [loading, dispatch]);
+  }, [data, dispatch]);
   useEffect(() => {
     if (error) {
       setToast({ title: "Error", content: error, type: "error" });
@@ -27,7 +27,7 @@ export default function ItemList() {
     <>
       <h1>Main Page</h1>
       <div className="item-container">
-        {loading ? (
+        {loading && !data ? (
           <>Loading</>
         ) : (
           data !== null &&

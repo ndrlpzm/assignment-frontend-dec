@@ -1,15 +1,18 @@
 import "./ItemDetail.css";
 import { useNavigate } from "react-router-dom";
 import { handleImgError } from "../utils/utils";
-import { useAppSelector } from "../hooks/redux";
+import { useAppDispatch, useAppSelector } from "../hooks/redux";
+import { fetchAll } from "../redux/slices/itemListSlice";
 
 export default function ItemDetail() {
   const item = useAppSelector((state) => state.activeItem.value);
   const navigate = useNavigate();
+  const dispatch = useAppDispatch();
 
   function handleClick(
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ): void {
+    dispatch(fetchAll());
     navigate("/");
   }
 
