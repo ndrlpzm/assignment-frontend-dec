@@ -25,7 +25,7 @@ export const ItemListSlice = createSlice({
     });
     builder.addCase(fetchAll.fulfilled, (state, action) => {
       try {
-        let itemArray: Item[] = Object.keys(action.payload).map((key) => {
+        const itemArray: Item[] = Object.keys(action.payload).map((key) => {
           const obj = action.payload[key as keyof typeof action.payload];
           return {
             key: key,
