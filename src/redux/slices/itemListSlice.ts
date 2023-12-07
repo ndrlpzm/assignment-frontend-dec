@@ -35,6 +35,7 @@ export const ItemListSlice = createSlice({
             description: obj.description,
           };
         });
+        itemArray.sort((a, b) => a.index - b.index);
         return { ...state, data: itemArray, loading: false };
       } catch (error) {
         return { ...state, loading: false, error: "Unexpected response" };
