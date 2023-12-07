@@ -9,9 +9,10 @@ import { Toast } from "../data/objects/toast";
 export default function ItemList() {
   const dispatch = useAppDispatch();
   const { data, loading, error } = useAppSelector((state) => state.items);
-  const setToast = useCreateToast();
-  //const loading = useAppSelector((state) => state.items.loading);
   const selectedItem = useAppSelector((state) => state.activeItem.value);
+
+  const setToast = useCreateToast();
+
   useEffect(() => {
     if (loading) {
       dispatch(fetchAll());

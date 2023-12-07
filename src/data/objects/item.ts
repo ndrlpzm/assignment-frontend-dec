@@ -1,18 +1,9 @@
 export class Item {
-  index: number;
-  image: string;
-  title: string;
-  description?: string;
   constructor(
-    index: number,
-    image: string,
-    title: string,
-    description?: string | undefined
-  ) {
-    this.index = index;
-    this.image = image;
-    this.title = title;
-    this.description = description;
-  }
+    public index: number,
+    public image: string,
+    public title: string,
+    public description?: string | undefined
+  ) {}
 }
 export default Item;
