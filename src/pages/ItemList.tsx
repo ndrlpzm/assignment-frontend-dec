@@ -26,7 +26,7 @@ export default function ItemList() {
   return (
     <>
       <h1>Main Page</h1>
-      <div className="item-container">
+      <div data-testid="item-container" className="item-container">
         {loading && !data ? (
           <>Loading</>
         ) : (

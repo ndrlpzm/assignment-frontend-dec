@@ -20,6 +20,7 @@ export default function ItemPreview({ item, isSelected }: ItemPreviewInput) {
     <article
       onClick={handleClick}
       className={isSelected ? "list-item selected-item" : "list-item"}
+      data-testid="item-preview"
     >
       <h2>{item.title}</h2>
       <div className="image-wrapper">
