@@ -1,9 +1,28 @@
+import React from "react";
+// import { HttpResponse, http } from "msw";
+// import { setupServer } from "msw/node";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import App from "./App";
 import mockData from "./data/MockData.json";
+import { store } from "./redux/store";
+import { Provider } from "react-redux";
+
+beforeEach(() => {
+  jest
+    .spyOn(window, "fetch")
+    .mockResolvedValue(new Response(JSON.stringify(mockData)));
+});
+afterEach(() => {
+  // restore the spy created with spyOn
+  jest.restoreAllMocks();
+});
 
 test("home page has items when it's done loading", async () => {
-  render(<App />);
+  render(
+    <Provider store={store}>
+      <App />
+    </Provider>
+  );
   await waitFor(() => {
     expect(screen.getByTestId("item-container")).not.toHaveTextContent(
       "Loading"
@@ -13,7 +32,11 @@ test("home page has items when it's done loading", async () => {
 });
 
 test("home page items stay selected after click", async () => {
-  render(<App />);
+  render(
+    <Provider store={store}>
+      <App />
+    </Provider>
+  );
   await waitFor(() => {
     expect(screen.getAllByTestId("item-preview")).not.toHaveLength(0);
   });
