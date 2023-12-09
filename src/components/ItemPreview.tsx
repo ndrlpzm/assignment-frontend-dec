@@ -3,6 +3,8 @@ import Item from "../data/objects/item";
 import { setActive } from "../redux/slices/activeItemSlice";
 import { handleImgError } from "../utils/utils";
 import { useAppDispatch } from "../hooks/redux";
+import "./ItemPreview.css";
+
 interface ItemPreviewInput {
   item: Item;
   isSelected: boolean;

@@ -2,25 +2,38 @@
   --padding-sides: 24px;
   --padding-top-bottom: 20px;
 
+  --border-radius: 10%;
+
   --background-base: #ececf0;
   --background-article: #f3f3f3;
 
   --foreground-base: #241f1c;
-  --foreground-header: #493e3e;
+  --foreground-header: #3e4549;
 
-  --accent: #bd6b6b;
+  --accent: #c20b57;
   --accent-sheer: #bd6b6ba2;
+
+  --gradient-a: #a7ccdf;
+  --gradient-b: #c3e3cc;
+  --gradient-c: #eae5f4;
 
   --border: #afafaf;
 
-  --transparent-white: #ffffffbd;
+  --transparent-white: #ffffffc0;
 }
 body {
   background-color: var(--background-base);
+  background: var(--gradient-b);
+  background: radial-gradient(
+    circle,
+    var(--gradient-c) 0%,
+    var(--gradient-b) 35%,
+    var(--gradient-a) 100%
+  );
   padding: var(--padding-top-bottom) var(--padding-sides);
 }
 article {
-  background-color: var(--background-article);
+  background-color: var(--transparent-white);
 }
 h2 {
   margin-block: 0;
