@@ -1,5 +1,6 @@
 # Photo album assignment
 In this assignment I was asked to create a SPA displaying a data set provided by an API. If the API returns an error it should display the last valid response.
+
 The main requirements are:
 - Responsive single page application
 - Using a javascript framework (React)
@@ -13,19 +14,22 @@ The main requirements are:
 
 ### Main page
 
-In this page we will be showing a preview of the item containing a cropped image using the item description as the image alt and the title property. When an image can't be loaded, a placeholder is rendered instead.
+![MainPage](https://github.com/ndrlpzm/assignment-frontend-dec/assets/46680834/9f41d02e-b274-4f04-b826-a6947f7af5a6)
+
+In this page we will be showing a preview of the item containing a cropped image (using the item description as the image alt) and the title on top. When an image can't be loaded, a placeholder is rendered instead.
 
 When the user clicks an item, this item is set as active (shown as a reddish border) and it redirects to the /:id/:item page.
-
-When the loading state is true a placeholder label is shown.
 
 **Note:** Image caching should be done automatically by the browser but it will still try to reload missing pictures. Since this is desirable behaviour no other caching techniques were considered.
 
 ### Item page
+![ItemPage](https://github.com/ndrlpzm/assignment-frontend-dec/assets/46680834/6462918f-07ba-4a83-b331-14273c06e50b)
 
 This page displays the uncropped image together with its title and description.
 
-The Go Home button refetches data.
+The Go Home button refetches data and navigates to the main page.
+
+**Note:** The assignment isn´t clear about what to do when navigating home, but since it instructs you to use fetch all and set active I assumed there was a typo and decided to only do the fetching. The active item is already being updated on click on the main page.
 
 ## Data
 
@@ -35,7 +39,7 @@ The api provided returns a json object similar to this:
 
 ```
 {
-	mock_1: {
+  mock_1: {
     title: "Mock 1",
     description: "Description 1",
     image: "https://images.mocks/id/00",
@@ -50,15 +54,7 @@ The api provided returns a json object similar to this:
 }
 ```
 
-Since the assignment doesn´t specify how data should be stored in the application a decision was made to store the data in an array consisting of Item elements. The item class contains the following properties:
-
-- key: string
-- index: number
-- image: string
-- title: string
-- description: string or undefined
-
-While the structure isn't the same as the one of the json objects it was done this way to make it easier to use in the application. To do this I'm mapping the payload right after the fetch.
+Since the assignment doesn´t specify how data should be stored in the application a decision was made to store the data in an array consisting of Item elements.
 
 ### Auxiliary data
 
@@ -73,8 +69,6 @@ Errors are shown in a toast component. To do this, Toast objects are stored in s
 Most of these types won't be used in this application but css is provided to match the toast types.
 
 ## State
-
-The application uses Redux for state management. The state store consists of three slices: item List, active Item and toast.
 
 ### Item List
 
@@ -95,21 +89,14 @@ The item list is populated through a thunk (fetchAll) where the fetch auxiliary 
 
 ### Active Item
 
-The active item is stored as Item or undefined through the setActive reducer and it defaults to undefined.
+The assignment mentions the active ID, but since the api doesn't provide an endpoint to retrieve the item I made the decision to store the entire Item as active instead of the index.
 
-The api doesn't provide an endpoint to retrieve the item so I decided to store the entire Item as active instead of the index. This is also used to display the details in the /:id/:item page
-
-### Toast
-
-The toast slice stores a Toast array and provides two self explanatory reducers to update it: add and deleteFirst.
-
-
+While this wouldn't be ideal in a production environment it is a good workaround to display the details in the /:id/:item page.
 
 ## Tests
  ```
  npm test
 ```
-Using jest.spyOn the fetch is intercepted and a Response is returned using mock data to be used during tests.
 
 ### "Home page has items when it's done loading"
 
