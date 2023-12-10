@@ -1,4 +1,31 @@
 # Photo album assignment
+In this assignment I was asked to create a SPA displaying a data set provided by an API. If the API returns an error it should display the last valid response.
+The main requirements are:
+- Responsive single page application
+- Using a javascript framework (React)
+- Typescript
+- Using a state machine (Redux)
+- Routing (React Router)
+- Implementing tests (Jest, React Testing Library)
+- Docker
+
+## Pages
+
+### Main page
+
+In this page we will be showing a preview of the item containing a cropped image using the item description as the image alt and the title property. When an image can't be loaded, a placeholder is rendered instead.
+
+When the user clicks an item, this item is set as active (shown as a reddish border) and it redirects to the /:id/:item page.
+
+When the loading state is true a placeholder label is shown.
+
+**Note:** Image caching should be done automatically by the browser but it will still try to reload missing pictures. Since this is desirable behaviour no other caching techniques were considered.
+
+### Item page
+
+This page displays the uncropped image together with its title and description.
+
+The Go Home button refetches data.
 
 ## Data
 
@@ -76,24 +103,12 @@ The api doesn't provide an endpoint to retrieve the item so I decided to store t
 
 The toast slice stores a Toast array and provides two self explanatory reducers to update it: add and deleteFirst.
 
-## Pages
 
-### Main page
-
-In this page we will be showing a preview of the item containing a cropped image using the item description as the image alt and the title property. When an image can't be loaded, a placeholder is rendered instead.
-
-When the user clicks an item, this item is set as active (shown as a reddish border) and it redirects to the /:id/:item page.
-
-When the loading state is true a placeholder label is shown.
-
-**Note:** Image caching should be done automatically by the browser but it will still try to reload missing pictures. Since this is desirable behaviour no other caching techniques were considered.
-
-### Item page
-
-This page displays the image data.
 
 ## Tests
-
+ ```
+ npm test
+```
 Using jest.spyOn the fetch is intercepted and a Response is returned using mock data to be used during tests.
 
 ### "Home page has items when it's done loading"
