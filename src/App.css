@@ -10,8 +10,8 @@
   --foreground-base: #241f1c;
   --foreground-header: #3e4549;
 
-  --accent: #c20b57;
-  --accent-sheer: #bd6b6ba2;
+  --accent: #cf2069cc;
+  --accent-2: #63a7c9;
 
   --gradient-a: #a7ccdf;
   --gradient-b: #c3e3cc;
@@ -41,6 +41,7 @@ h2 {
   color: var(--foreground-header);
 }
 h1 {
+  font-family: "Bitter", serif;
   margin-block: 0;
   text-align: center;
   color: var(--foreground-header);
