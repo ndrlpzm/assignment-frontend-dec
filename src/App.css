@@ -2,27 +2,24 @@
   --padding-sides: 24px;
   --padding-top-bottom: 20px;
 
-  --border-radius: 10%;
+  --border-radius: 8%;
 
-  --background-base: #ececf0;
-  --background-article: #f3f3f3;
+  --background-white: #f3f3f3;
+  --transparent-white: #ffffffc0;
 
   --foreground-base: #241f1c;
   --foreground-header: #3e4549;
 
   --accent: #cf2069cc;
-  --accent-2: #63a7c9;
+  --accent-2: #5788a0;
 
   --gradient-a: #a7ccdf;
   --gradient-b: #c3e3cc;
   --gradient-c: #eae5f4;
 
   --border: #afafaf;
-
-  --transparent-white: #ffffffc0;
 }
 body {
-  background-color: var(--background-base);
   background: var(--gradient-b);
   background: radial-gradient(
     circle,

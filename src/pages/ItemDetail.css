@@ -22,7 +22,7 @@ h1 {
   font-size: 1.5em;
 }
 .button-back {
-  background-color: var(--background-article);
+  background-color: var(--background-white);
   border: 2px solid var(--border);
   font-size: 1.3em;
   padding: 10px 22px;
@@ -30,24 +30,4 @@ h1 {
 }
 .button-back:hover {
   border-color: var(--accent-2);
-}
-/* --- Compact ---------------------------------------------------------------*/
-@media screen and (width < 599px) {
-  .item-container {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-/* --- Medium ----------------------------------------------------------------*/
-@media screen and (600px < width < 839px) {
-  .item-container {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-/* --- Expanded --------------------------------------------------------------*/
-@media screen and (840px < width) {
-  .item-container {
-    grid-template-columns: repeat(5, 1fr);
-  }
 }
