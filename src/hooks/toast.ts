@@ -1,4 +1,4 @@
-import { Toast } from "../data/objects/toast";
+import { Toast } from "../data/toast";
 import { add, deleteFirst } from "../redux/slices/toastSlice";
 import { useAppDispatch } from "./redux";
 

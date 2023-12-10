@@ -1,5 +1,5 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import Item from "../../data/objects/item";
+import { Item } from "../../data/item";
 
 interface ActiveItemState {
   value: Item | undefined;

@@ -1,6 +1,6 @@
 import "./App.css";
 import { RouteProvider } from "./Routes";
-import ToastContainer from "./components/toast/ToastContainer";
+import ToastContainer from "./components/ToastContainer";
 
 function App() {
   return (

@@ -1,5 +1,5 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { Toast } from "../../data/objects/toast";
+import { Toast } from "../../data/toast";
 interface ToastState {
   value: Toast[];
 }

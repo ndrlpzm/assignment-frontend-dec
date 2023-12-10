@@ -1,4 +1,4 @@
-import { Toast } from "../../data/objects/toast";
+import { Toast } from "../data/toast";
 
 interface ToastComponentProps {
   toast: Toast;

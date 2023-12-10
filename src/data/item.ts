@@ -7,4 +7,3 @@ export class Item {
     public description?: string | undefined
   ) {}
 }
-export default Item;

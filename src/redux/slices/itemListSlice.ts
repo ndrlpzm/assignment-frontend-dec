@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { AppDispatch, RootState } from "../store";
-import Item from "../../data/objects/item";
+import { Item } from "../../data/item";
 import { callApiFetch } from "../../utils/api";
 
 interface ItemListState {
