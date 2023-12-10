@@ -12,17 +12,17 @@ The main requirements are:
 
 ## Pages
 
-### Main page
+### Main page (/)
 
 ![MainPage](https://github.com/ndrlpzm/assignment-frontend-dec/assets/46680834/9f41d02e-b274-4f04-b826-a6947f7af5a6)
 
 In this page we will be showing a preview of the item containing a cropped image (using the item description as the image alt) and the title on top. When an image can't be loaded, a placeholder is rendered instead.
 
-When the user clicks an item, this item is set as active (shown as a reddish border) and it redirects to the /:id/:item page.
+When the user clicks an item, this item is set as active (shown as a reddish border) and it redirects to the item page.
 
 **Note:** Image caching should be done automatically by the browser but it will still try to reload missing pictures. Since this is desirable behaviour no other caching techniques were considered.
 
-### Item page
+### Item page (/:id/:item)
 ![ItemPage](https://github.com/ndrlpzm/assignment-frontend-dec/assets/46680834/6462918f-07ba-4a83-b331-14273c06e50b)
 
 This page displays the uncropped image together with its title and description.
@@ -39,18 +39,19 @@ The api provided returns a json object similar to this:
 
 ```
 {
-  mock_1: {
-    title: "Mock 1",
-    description: "Description 1",
-    image: "https://images.mocks/id/00",
-    index: 1,
+  "mock_1": {
+    "title": "Mock 1",
+    "description": "Description 1",
+    "image": "https://images.mocks/id/00",
+    "index": 1,
   },
-  mock_2: {
-    title: "Mock 2",
-    description: "Description 2",
-    image: "http://www.mock.com/images/stocks/stock1502.jpg",
-    index: 2,
+  "mock_2": {
+    "title": "Mock 2",
+    "description": "Description 2",
+    "image": "http://www.mock.com/images/stocks/stock1502.jpg",
+    "index": 2,
   },
+...
 }
 ```
 
@@ -97,7 +98,6 @@ While this wouldn't be ideal in a production environment it is a good workaround
  ```
  npm test
 ```
-
 ### "Home page has items when it's done loading"
 
 This test checks that at least one photo preview is rendered after the "loading" placeholder text disappears.
